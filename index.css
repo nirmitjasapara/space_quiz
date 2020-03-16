@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-radius: 1%;
+  }
+  
+  body {
+    font-family: 'Codystar', cursive;
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+  }
+  
+  header {
+    text-align: center;
+  }
+
+  header li {
+    display: inline-block;
+    margin: 1em;
+    list-style: none;
+    font-size: 1.3em;
+  }
+  .scoreStars {
+    border: 1px white solid;
+    background-color: white;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+  }
