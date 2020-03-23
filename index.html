@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <title>Space quiz</title>
-  <meta name="description" type="A quiz app for space and science trivia.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="#">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Codystar" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="index.css" />
-</head>
-
-<body>
-  <main role="main" class="container">
-    <header role="banner" class="header">
-      <section>
-        <a href="index.html">
-          <h1>Space</h1>
-        </a>
-      </section>
-      <section>
-        <ul>
-          <li>Score:
-          </li>
-          <li class="scoreStars">
-          </li>
-        </ul>
-      </section>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="HTML, CSS & JS Quiz">
+    <title>Quiz App</title>
+    <link rel="shortcut icon" href="#">
+    <link href="float-grid.css" rel="stylesheet" type="text/css" />
+    <link href="index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <div class="row">
+        <div class="col-12">
+          <h1>Scale of the Universe Quiz</h1>    
+          <div class="question-and-score"></div>
+        </div>
+      </div>
     </header>
-  </main>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <script src="index.js"></script>
-</body>
-
+    <main role="main" aria-live="assertive">
+      <fieldset>
+        <div class="row">
+          <div class="col-12">
+            <legend>Scale of the Universe</legend>
+            <p>Do you know how big our world is?</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button type="button" id="next-question">Let's find out</button>
+          </div>
+        </div>
+      </fieldset>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="store.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>
