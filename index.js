@@ -35,7 +35,7 @@ function renderAQuestion() {
     for(let i=0; i<question.options.length; i++)
     {
       $('.js-options').append(`
-          <input type = "radio" name="options" id="option${i+1}" value="${i}" tabindex ="${i+1}"> 
+          <input type = "radio" name="options" id="option${i+1}" value="${i+1}" tabindex ="${i+1}"> 
           <label for="option${i+1}"> ${question.options[i]}</label> <br/>
           <span id="js-r${i+1}"></span>
       `);
@@ -44,25 +44,11 @@ function renderAQuestion() {
   }
   function displayResults() {
     let resultHtml = $(
-      `<div class="results">
-        <form id="js-restart-quiz">
-          <fieldset>
-            <div class="row">
-              <div class="col-12">
-                <legend>Your Score is: ${STORE.score}/${STORE.questions.length}</legend>
-              </div>
-            </div>
-          
-            <div class="row">
-              <div class="col-12">
-                <button type="button" id="next-question"> Restart Quiz </button>
-              </div>
-            </div>
-          </fieldset>
-      </form>
-      </div>`);
-      STORE.currentQuestion = 0;
-      STORE.score = 0;
+      STORE.HTML.displayStringPre
+      + `${STORE.score}/${STORE.questions.length}`
+      + STORE.HTML.displayStringPost);
+    STORE.currentQuestion = 0;
+    STORE.score = 0;
     $("main").html(resultHtml);
   }
 function handleSelectOption() {
@@ -74,7 +60,7 @@ function handleSelectOption() {
       alert("Choose an option");
       return;
     } 
-    let id = "#js-r" + (selectedOption+1);
+    let id = "#js-r" + selectedOption;
     $('span').removeClass("right-answer wrong-answer");
     if(selectedOption === currentQues.answer) {
       STORE.score++; 
@@ -83,7 +69,7 @@ function handleSelectOption() {
     }
     else {
       $(`${id}`).append(`You got it wrong <br/> The answer is 
-        ${currentQues.options[currentQues.answer]}<br/>`);
+        ${currentQues.options[currentQues.answer - 1]}<br/>`);
       $(`${id}`).addClass("wrong-answer");
     }
 

@@ -29,7 +29,26 @@ const STORE = {
         </fieldset>
       </form>
     </div>`,
-    
+    displayStringPre: 
+    `<div class="results">
+      <form id="js-restart-quiz">
+        <fieldset>
+          <div class="row">
+            <div class="col-12">
+              <legend>Your Score is: `,
+    displayStringPost: 
+              `</legend>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-12">
+              <button type="button" id="next-question"> Restart Quiz </button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>`,
   },
   questions: [
     {
@@ -40,7 +59,7 @@ const STORE = {
         "about 10^53 kg", 
         "about 10^73 kg"
       ],
-      answer: 2
+      answer: 3
     },
     {
       question: "How big is in our universe?",
@@ -50,7 +69,7 @@ const STORE = {
         "about 10^113 m^3",
         "about 10^150 m^3"
       ],
-      answer: 1
+      answer: 2
     },
     {
       question: "How big is a Planck length?",
@@ -60,7 +79,7 @@ const STORE = {
         "about 10^-35 m",
         "about 10^-55 m"
       ],
-      answer: 2
+      answer: 3
     },
     {
       question: "How big is a Planck mass?",
@@ -70,7 +89,7 @@ const STORE = {
         "about 10^-32 kg",
         "about 10^-53 kg"
       ],
-      answer: 0
+      answer: 1
     },
     {
       question: "How big is a Planck time?",
@@ -80,7 +99,7 @@ const STORE = {
         "about 10^-13 s",
         "about 10^-44 s"
       ],
-      answer: 3
+      answer: 4
     },
   ],
   currentQuestion: 0,
