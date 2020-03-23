@@ -40,7 +40,7 @@ const STORE = {
         "about 10^53 kg", 
         "about 10^73 kg"
       ],
-      answer: "about 10^53 kg"
+      answer: 2
     },
     {
       question: "How big is in our universe?",
@@ -50,7 +50,7 @@ const STORE = {
         "about 10^113 m^3",
         "about 10^150 m^3"
       ],
-      answer: "about 10^80 m^3"
+      answer: 1
     },
     {
       question: "How big is a Planck length?",
@@ -60,7 +60,7 @@ const STORE = {
         "about 10^-35 m",
         "about 10^-55 m"
       ],
-      answer: "about 10^-35 m"
+      answer: 2
     },
     {
       question: "How big is a Planck mass?",
@@ -70,7 +70,7 @@ const STORE = {
         "about 10^-32 kg",
         "about 10^-53 kg"
       ],
-      answer: "about 10^-8 kg"
+      answer: 0
     },
     {
       question: "How big is a Planck time?",
@@ -80,7 +80,7 @@ const STORE = {
         "about 10^-13 s",
         "about 10^-44 s"
       ],
-      answer: "about 10^-44 s"
+      answer: 3
     },
   ],
   currentQuestion: 0,

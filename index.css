@@ -107,14 +107,12 @@
   }
   
   .right-answer {
-   background:ivory;
    padding: 10px 20px;
    margin: 5px 20px;
    border:2px solid greenyellow;
   }
   
   .wrong-answer {
-    background:ivory;
     padding: 10px;
     margin: 5px 20px;
     border:2px solid #fe0000;

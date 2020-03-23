@@ -1,3 +1,10 @@
+$(handleQuizApp);
+
+function handleQuizApp() {
+  handleQuestions();
+  handleSelectOption();
+}
+
 function handleQuestions() {
   $('body').on('click','#next-question', (event) => {
     STORE.currentQuestion === STORE.questions.length?displayResults() : renderAQuestion();
@@ -28,48 +35,46 @@ function renderAQuestion() {
     for(let i=0; i<question.options.length; i++)
     {
       $('.js-options').append(`
-          <input type = "radio" name="options" id="option${i+1}" value= "${question.options[i]}" tabindex ="${i+1}"> 
+          <input type = "radio" name="options" id="option${i+1}" value="${i}" tabindex ="${i+1}"> 
           <label for="option${i+1}"> ${question.options[i]}</label> <br/>
           <span id="js-r${i+1}"></span>
       `);
     }
     
   }
-function displayResults() {
-  let resultHtml = $(
-    `<div class="results">
-      <form id="js-restart-quiz">
-        <fieldset>
-          <div class="row">
-            <div class="col-12">
-              <legend>Your Score is: ${STORE.score}/${STORE.questions.length}</legend>
+  function displayResults() {
+    let resultHtml = $(
+      `<div class="results">
+        <form id="js-restart-quiz">
+          <fieldset>
+            <div class="row">
+              <div class="col-12">
+                <legend>Your Score is: ${STORE.score}/${STORE.questions.length}</legend>
+              </div>
             </div>
-          </div>
-        
-          <div class="row">
-            <div class="col-12">
-              <button type="button" id="restart"> Restart Quiz </button>
+          
+            <div class="row">
+              <div class="col-12">
+                <button type="button" id="next-question"> Restart Quiz </button>
+              </div>
             </div>
-          </div>
-        </fieldset>
-    </form>
-    </div>`);
-    STORE.currentQuestion = 0;
-    STORE.score = 0;
-  $("main").html(resultHtml);
-}
-/*checks whether the chosen option is right or wrong and displays respective message*/ 
+          </fieldset>
+      </form>
+      </div>`);
+      STORE.currentQuestion = 0;
+      STORE.score = 0;
+    $("main").html(resultHtml);
+  }
 function handleSelectOption() {
   $('body').on("submit",'#js-questions', function(event) {
     event.preventDefault();
     let currentQues = STORE.questions[STORE.currentQuestion];
-    let selectedOption = $("input[name=options]:checked").val();
+    let selectedOption = Number($("input[name=options]:checked").val());
     if (!selectedOption) {
       alert("Choose an option");
       return;
     } 
-    let id_num = currentQues.options.findIndex(i => i === selectedOption);
-    let id = "#js-r" + ++id_num;
+    let id = "#js-r" + (selectedOption+1);
     $('span').removeClass("right-answer wrong-answer");
     if(selectedOption === currentQues.answer) {
       STORE.score++; 
@@ -77,7 +82,8 @@ function handleSelectOption() {
       $(`${id}`).addClass("right-answer");
     }
     else {
-      $(`${id}`).append(`You got it wrong <br/> The answer is "${currentQues.answer}"<br/>`);
+      $(`${id}`).append(`You got it wrong <br/> The answer is 
+        ${currentQues.options[currentQues.answer]}<br/>`);
       $(`${id}`).addClass("wrong-answer");
     }
 
@@ -88,17 +94,3 @@ function handleSelectOption() {
     $('#next-question').show();
   });
 }
-
-function handleRestart() {
-  $('body').on('click','#restart', (event) => {
-    renderAQuestion();
-  });
-}
-
-function handleQuizApp() {
-  handleQuestions();
-  handleSelectOption();
-  handleRestart();
-}
-
-$(handleQuizApp);
