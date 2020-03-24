@@ -13,6 +13,7 @@
     background:cover;
     background-image: url("images/background.jpg");
     background-color: #262626;
+    animation: stars 300s infinite;
   }
   
   header {
@@ -133,4 +134,14 @@
   
   button:disabled {
     opacity:0.5;
+  }
+
+  .bottom-img {
+    position: absolute;
+    bottom: -800px;
+    width: 100%;
+  }
+  @keyframes stars {
+    from {background-position-y: 0%}
+    50% {background-position-y: 100%}
   }
